@@ -1,10 +1,8 @@
--- Bezier class. luau (yes roblox)
-
 local Bezier = {}
 Bezier.__index = Bezier
 
 export type Curve = {
-	Points: {any}
+	Points: {Vector3}
 }
 
 function Bezier.new(Points: {Vector3}): Curve
@@ -26,13 +24,6 @@ function Bezier:Position(Time: number): Vector3
 	end
 
 	return Copy[1]
-end
-
-function Bezier:Destroy()
-	self.Points = nil
-	setmetatable(self, nil)
-	table.clear(self)
-	table.freeze(self)
 end
 
 return Bezier
